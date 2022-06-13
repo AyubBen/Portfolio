@@ -19,3 +19,8 @@
   
  - <a href= "https://twitter.com/AyubBenzR"><img align ="left" alt= "Ayub | Twitter" width ="22px"
   src="https://raw.githubusercontent.com/peterthehan/peterthehan/master/assets/twitter.svg" /> </a>
+
+
+### My Stats 📈
+
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=AyubBen&theme=radical)
