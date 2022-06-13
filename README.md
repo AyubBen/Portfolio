@@ -12,3 +12,9 @@
 - 👨‍🎓 Currently pursuing MSc of Business Analytics.
 - 🎲 Exploring different technologies & Softwares.
 - 🎮 My hobbies include playing football and streaming video games.
+
+### My socials 📪
+- <a href= "https://www.linkedin.com/in/ayubbenlahcene/">
+  <img align ="left" alt= Ayub's LinkedIn" width ="22px"
+  src ="https://raw.githubusercontent.com/peterthehan/peterthehan/master/assets/linkedin.svg" />
+                               </a>
