@@ -7,13 +7,13 @@
 ### [Check out my Portfolio 😄](https://ayubben.github.io/Portfolio-Projects/)
 
 
-### About me 👨
+### - About me 👨
 - 👨‍🎓 Graduated with Bachelor's of Information Technology & Specialised in Business Intelligence.
 - 👨‍🎓 Currently pursuing MSc of Business Analytics.
 - 🎲 Exploring different technologies & Softwares.
 - 🎮 My hobbies include playing football and streaming video games.
 
-### My socials 📪
+### - My socials 📪
 - <a href= "https://www.linkedin.com/in/ayubbenlahcene/"> <img align ="left" alt= "Ayub's LinkedIn" width ="22px"
   src="https://raw.githubusercontent.com/peterthehan/peterthehan/master/assets/linkedin.svg" /> </a>       
   
@@ -21,6 +21,6 @@
   src="https://raw.githubusercontent.com/peterthehan/peterthehan/master/assets/twitter.svg" /> </a>
 
 
-### My Stats 📈
+### - My Stats 📈
 
 ![GitHub Stats](https://github-readme-stats.vercel.app/api?username=AyubBen&theme=radical)
