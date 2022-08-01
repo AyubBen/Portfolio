@@ -1,4 +1,6 @@
 /*
+Link to the COVID-19 Dashboard:
+https://public.tableau.com/app/profile/ayub.benlahcene/viz/Covid-19Dashboard_16551639135110/Dashboard1
 Queries for the Tableau Project
 */
 
