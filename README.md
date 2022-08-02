@@ -24,3 +24,5 @@
 ### - My Stats 📈
 
 ![GitHub Stats](https://github-readme-stats.vercel.app/api?username=AyubBen&theme=radical)
+
+![Top Languages] (https://github-readme-stats.vercel.app/api/top-langs/ username=AyubBen&show_icons=true&theme=radical)
