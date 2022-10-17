@@ -1,5 +1,5 @@
 #Introduction
-"This project will use Excel, R and SPSS.
+"This project will use Excel and R.
 
 The dataset used can be found in Kaggle:
 https://www.kaggle.com/tomasdrietomsky/life-expectancy-gdp-per-capita-food-security
@@ -152,11 +152,18 @@ Germany %>% autoplot(Thinness.5.9.Years.Old)
 
 
 
+
+
 #ADD SCREENSHOTSSS !!!
 
 
 
-#decompose method for China
+#Time Series Decomposition
+
+#In this study, seasonality will not be captured as the data is on a yearly basis and only the trend will be investigated. 
+#The objective of using this method is to capture how trend is changing in the two countries, and the attributes GDP, Life Expectancy, Alcohol, Polio, Diphtheria. 
+
+#decompose method for China (Life Expectancy, GDP, ALcohol, Polio, Diphtheria)
 China %>% model(stl=STL(GDP))
 China_dcmp <- China %>% model(stl=STL(GDP))
 components(China_dcmp)
@@ -164,9 +171,35 @@ China %>% autoplot(GDP,color='gray')+
   autolayer(components(China_dcmp),trend,color='red')
 components(China_dcmp) %>% autoplot()+ xlab("Year")
 
+China %>% model(stl=STL(Life_Expectancy))
+China_dcmp <- China %>% model(stl=STL(Life_Expectancy))
+components(China_dcmp)
+China %>% autoplot(Life_Expectancy,color='gray')+
+  autolayer(components(China_dcmp),trend,color='red')
+components(China_dcmp) %>% autoplot()+ xlab("Year")
 
+China %>% model(stl=STL(ALcohol))
+China_dcmp <- China %>% model(stl=STL(ALcohol))
+components(China_dcmp)
+China %>% autoplot(ALcohol,color='gray')+
+  autolayer(components(China_dcmp),trend,color='red')
+components(China_dcmp) %>% autoplot()+ xlab("Year")
 
-#decompose method for Germany
+China %>% model(stl=STL(Polio))
+China_dcmp <- China %>% model(stl=STL(Polio))
+components(China_dcmp)
+China %>% autoplot(Polio,color='gray')+
+  autolayer(components(China_dcmp),trend,color='red')
+components(China_dcmp) %>% autoplot()+ xlab("Year")
+
+China %>% model(stl=STL(Diphtheria))
+China_dcmp <- China %>% model(stl=STL(Diphtheria))
+components(China_dcmp)
+China %>% autoplot(Diphtheria,color='gray')+
+  autolayer(components(China_dcmp),trend,color='red')
+components(China_dcmp) %>% autoplot()+ xlab("Year")
+
+#decompose method for Germany (Life Expectancy, GDP, ALcohol, Polio, Diphtheria)
 Germany %>% model(stl=STL(GDP))
 Germany_dcmp <- Germany %>% model(stl=STL(GDP))
 components(Germany_dcmp)
@@ -174,9 +207,46 @@ Germany %>% autoplot(GDP,color='gray')+
   autolayer(components(Germany_dcmp),trend,color='red')
 components(Germany_dcmp) %>% autoplot()+ xlab("Year")
 
+Germany %>% model(stl=STL(Life Expectancy))
+Germany_dcmp <- Germany %>% model(stl=STL(Life Expectancy))
+components(Germany_dcmp)
+Germany %>% autoplot(Life Expectancy,color='gray')+
+  autolayer(components(Germany_dcmp),trend,color='red')
+components(Germany_dcmp) %>% autoplot()+ xlab("Year")
+
+Germany %>% model(stl=STL(ALcohol))
+Germany_dcmp <- Germany %>% model(stl=STL(ALcohol))
+components(Germany_dcmp)
+Germany %>% autoplot(ALcohol,color='gray')+
+  autolayer(components(Germany_dcmp),trend,color='red')
+components(Germany_dcmp) %>% autoplot()+ xlab("Year")
+
+Germany %>% model(stl=STL(Polio))
+Germany_dcmp <- Germany %>% model(stl=STL(Polio))
+components(Germany_dcmp)
+Germany %>% autoplot(Polio,color='gray')+
+  autolayer(components(Germany_dcmp),trend,color='red')
+components(Germany_dcmp) %>% autoplot()+ xlab("Year")
+
+Germany %>% model(stl=STL(Diphtheria))
+Germany_dcmp <- Germany %>% model(stl=STL(Diphtheria))
+components(Germany_dcmp)
+Germany %>% autoplot(Diphtheria,color='gray')+
+  autolayer(components(Germany_dcmp),trend,color='red')
+components(Germany_dcmp) %>% autoplot()+ xlab("Year")
+
+
+# ADD SCREENSHOTTTTT
+
 
 
 #III. Making Predictions¶
+
+
+#the use of complex forecasting methods increases the chances of errors occurring, resulting in a lower accuracy of the model built. 
+"Following the previous step, few simple forecasting methods were used due to their simplicity in application, and their effectiveness. 
+Specifically,the Average, Naïve, and Drift methods. The Seasonal Naïve Method will not be applied due to the lack of seasonality in this data. 
+The process of applying these methods after preparing the data, is to visualise it to have an idea and some knowledge about of the data."
 
 #Simple Forecast Methods
 Countries_fit <- Life_Expectancy_Data_ts %>% 
@@ -195,24 +265,18 @@ Countries_fit_fc %>%  autoplot(Life_Expectancy_Data_ts)
 
 
 
-#Exponential Smoothing 
-#China
-China_expsmoothing <- China %>% model(AAN = ETS (Life.Expectancy ~ error("A") + trend("A") + season("N")),)
-report(China_expsmoothing)
-components(China_expsmoothing)
-components(China_expsmoothing) %>% autoplot()
-China_expfc <- China_expsmoothing %>% forecast(h="3 years")
-China_expfc %>% autoplot(China)
-
-#2Germany
-Germany_expsmoothing <- Germany %>% model(AAN = ETS (Life.Expectancy ~ error("A") + trend("A") + season("N")),)
-report(Germany_expsmoothing)
-components(Germany_expsmoothing)
-components(Germany_expsmoothing) %>% autoplot()
-Germany_expfc <- Germany_expsmoothing %>% forecast(h="3 years")
-Germany_expfc %>% autoplot(Germany)
+# ADD SCREENSHOTTT of the foreaste table + visuals
 
 
+
+
+
+
+#Classification: K-NN 
+
+
+#In this study the groups are China and Germany, while the attributes the model will be populated with are GDP, Life Expectancy, Alcohol Consumption,
+#Polio and Diphtheria rates. Based on the attributes, the model will classify the data accordingly.
 
 
 
@@ -223,26 +287,13 @@ view(Life_Expectancy_Data)
 
 
 #Change format of the columns
-Life_Expectancy_Data$Country                <- as.factor(Life_Expectancy_Data$Country)
 Life_Expectancy_Data$Life.Expectancy        <- as.numeric(Life_Expectancy_Data$Life.Expectancy)
-Life_Expectancy_Data$Adult.Mortality        <- as.numeric(Life_Expectancy_Data$Adult.Mortality)
-Life_Expectancy_Data$Infant.Deaths          <- as.numeric(Life_Expectancy_Data$Infant.Deaths)
 Life_Expectancy_Data$Alcohol                <- as.numeric(Life_Expectancy_Data$Alcohol)
-Life_Expectancy_Data$Measles                <- as.numeric(Life_Expectancy_Data$Measles)
-Life_Expectancy_Data$BMI                    <- as.numeric(Life_Expectancy_Data$BMI)
-Life_Expectancy_Data$Under.five.Deaths      <- as.numeric(Life_Expectancy_Data$Under.five.Deaths)
 Life_Expectancy_Data$Polio                  <- as.numeric(Life_Expectancy_Data$Polio)
 Life_Expectancy_Data$Diphtheria             <- as.numeric(Life_Expectancy_Data$Diphtheria)
 Life_Expectancy_Data$GDP                    <- as.numeric(Life_Expectancy_Data$GDP)
-Life_Expectancy_Data$Thinness.1.4.Years.Old <- as.numeric(Life_Expectancy_Data$Thinness.1.4.Years.Old)
-Life_Expectancy_Data$Thinness.5.9.Years.Old <- as.numeric(Life_Expectancy_Data$Thinness.5.9.Years.Old)
 
 
-#Deleted the columns
-Life_Expectancy_Data$date <- NULL
-Life_Expectancy_Data$Annual <- NULL
-Life_Expectancy_Data$Status <- NULL
-Life_Expectancy_Data$HIV.AIDS <- NULL
 
 
 
@@ -282,3 +333,50 @@ table(Life_test_sp,model)
 ggplot(aes(GDP, Alcohol), data = Life_Exp_random)+
   geom_point(aes(color= factor(Country)))
 
+
+
+
+
+
+#Conclusion
+"Through the use of different business analytical tools and applying statistical methods, forecasting and predictive models, as well as a classification method 
+I was able to investigate the GDP and life expectancy data, and other variables that could have been impacted due to GDP."
+
+
+
+
+
+- First Objective
+"The analysis showed China’s GDP rate, from the perspective of developing country, growing 
+between 2000 and 2015 with a forecast of the rate to continue to increase for the following three 
+years."
+
+"On the other hand, the analysis also showed Germany’s GDP rate, as a developed country, 
+showed a fluctuation over the years but with an overall increase in the rate. The forecast also showed the country a positive incline on the long term."
+
+
+
+
+- Second & Third Objective
+"The results of the analysis in China on life expectancy showed an increase by 4 years between 
+2000-2015 and is forecasting to continue growing for the next three years. 
+Polio and Diphtheria rate both showed a rise in the years between 2000-2005 but has been the same rate until 2015. 
+Lastly, the alcohol consumption rate has been increasing from around 3.1 litres to 5.8 litres."
+
+
+
+"Moreover, the analysis in Germany for life expectancy showed an overall increase of around 5 
+years during the same tested period and is expected to continue to rise slowly over the following three years. 
+Polio and Diphtheria rate both showed the same results as China, where the two variables’ rates 
+increased in the first 5 years of the analysis, then maintained the same rate until 2015. 
+Finally, the alcohol consumption rate over the 15 years and is expected to decrease from 
+around 12.8 litres to 11.2 litres."
+
+
+
+#Overall, referring to the statistical methods applied showed a significant relationship between GDP 
+#and the variables tested but the rate of infection for the illnesses did not change overtime as seen in the forecasting analysis
+
+#Limitation:
+-  The possibility of external factors affecting the life expectancy of the population.
+- The variables investigated in this project were limited, and more important alternative variables could have changed the direction of the project and its findings.
