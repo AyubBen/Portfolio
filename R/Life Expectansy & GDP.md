@@ -3,9 +3,9 @@
 
 This project will use Excel and R.
 
-![Summary GDP](https://github.com/AyubBen/Portfolio/tree/main/images/summay(GDP).png)
 
 
+![plot of Summay (GDP)](https://github.com/AyubBen/Portfolio/images/Cleaning.png)
 
 
 ## The dataset used can be found in Kaggle:
