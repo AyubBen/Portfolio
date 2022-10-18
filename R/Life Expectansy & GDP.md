@@ -19,7 +19,7 @@ Each country’s life expectancy is different than another due to health develop
 The business case of this study is to investigate the physical health of the population in developing and developed countries over the years, 
 and whether GDP played a role in equation.
 Attributes such as GDP, life expectancy, adult mortality, infant deaths are all promising attributes to analyze and find interesting predictions. 
-Two countries have been chosen to narrow the focus of the study and make it more impactful and specific. The countries are first divided into two sections:
+Two countries have been chosen to narrow the focus of the study and make it more impactful and specific. The countries that will be used are Germany as a developed country and China as a developing country.
 
 
 
