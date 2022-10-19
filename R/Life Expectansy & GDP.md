@@ -15,15 +15,15 @@ Each country’s life expectancy is different than another due to health develop
 
 
 
-## Business Case Scenario (I created my own case):
-The business case of this project is to investigate the physical health of the population in developing and developed countries over the years, 
+## Case Scenario (I created my own case):
+The case scenario of this project is to investigate the physical health of the population in developing and developed countries over the years, 
 and whether GDP played a role in equation.
 Attributes such as GDP, life expectancy, adult mortality, infant deaths are all promising attributes to analyze and find interesting predictions. 
 Two countries have been chosen to narrow the focus of the project and make it more impactful and specific. The countries that will be used are Germany as a developed country and China as a developing country.
 
 
 
-## Business Questions:
+## Questions to answer:
 -	What is the future direction of GDP in the stated countries?
 -	What is the future direction for life expectancy, and some of the other variable in the stated countries?
 -	Which attributes are affected by the high/low GDP of the stated countries?
