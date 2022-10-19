@@ -8,7 +8,7 @@ This project will use Excel and R.
 ## The dataset used can be found in Kaggle:
 > https://www.kaggle.com/tomasdrietomsky/life-expectancy-gdp-per-capita-food-security
 
-The dataset chosen for this case study is GDP & Life Expectancy. The data was retrieved from an open source dataset found in Kaggle, 
+The dataset chosen for this project is GDP & Life Expectancy. The data was retrieved from an open source dataset found in Kaggle, 
 and it is made-up with two main excel sheets. The first is about life expectancy recorded over a yearly course between 2000 – 2015. 
 A total of 264 countries will be available for analysis use, providing 2905 total rows. The second will be about the GDP of each country between 1960-2019. 
 Each country’s life expectancy is different than another due to health development, economic stability and many more factors.
@@ -16,10 +16,10 @@ Each country’s life expectancy is different than another due to health develop
 
 
 ## Business Case Scenario (I created my own case):
-The business case of this study is to investigate the physical health of the population in developing and developed countries over the years, 
+The business case of this project is to investigate the physical health of the population in developing and developed countries over the years, 
 and whether GDP played a role in equation.
 Attributes such as GDP, life expectancy, adult mortality, infant deaths are all promising attributes to analyze and find interesting predictions. 
-Two countries have been chosen to narrow the focus of the study and make it more impactful and specific. The countries that will be used are Germany as a developed country and China as a developing country.
+Two countries have been chosen to narrow the focus of the project and make it more impactful and specific. The countries that will be used are Germany as a developed country and China as a developing country.
 
 
 
@@ -195,7 +195,7 @@ Germany %>% autoplot(GDP)
 
 ## Time Series Decomposition
 
-In this study, seasonality will not be captured as the data is on a yearly basis and only the trend will be investigated. 
+In this project, seasonality will not be captured as the data is on a yearly basis and only the trend will be investigated. 
 The objective of using this method is to capture how trend is changing in the two countries, and the attributes GDP, Life Expectancy, Alcohol, Polio, Diphtheria. 
 
 
@@ -323,7 +323,7 @@ Countries_fit_fc %>%  autoplot(Life_Expectancy_Data_ts)
 ## Classification: K-NN 
 
 
-In this study the groups are China and Germany, while the attributes the model will be populated with are GDP, Life Expectancy, Alcohol Consumption,
+In this project, the groups are China and Germany, while the attributes the model will be populated with are GDP, Life Expectancy, Alcohol Consumption,
 Polio and Diphtheria rates. Based on the attributes, the model will classify the data accordingly.
 
 
