@@ -9,7 +9,7 @@
 
 ### - About me 👨
 - 👨‍🎓 Graduated with Bachelor's of Information Technology & Specialised in Business Intelligence.
-- 👨‍🎓 Currently pursuing MSc of Business Analytics.
+- 👨‍🎓 Recently graduated with a Distinction in MSc of Business Analytics.
 - 🎲 Exploring different technologies & Softwares.
 - 🎮 My hobbies include playing football and streaming video games.
 
