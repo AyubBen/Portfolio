@@ -1,4 +1,7 @@
+                                                                      Mario Database
 
+- Create a database, tables, columns, and populate it with data.
+- Define Primary & Foreign keys.
 
 
 
@@ -22,6 +25,7 @@ second_database=>                                     List of databases
 
 \c mario_database;
 You are now connected to database "mario_database" as user "freecodecamp".
+
 mario_database=> DROP DATABASE second_database;
 DROP DATABASE sec\list
 mario_database=>                                    List of databases
@@ -36,9 +40,6 @@ mario_database=>                                    List of databases
 |                |              |          |         |         | postgres=CTc/postgres |
 +----------------+--------------+----------+---------+---------+-----------------------+
 (4 rows)
-
-\d
-Did not find any relations.
 
 mario_database=> CREATE TABLE characters();
 CREATE TABLE
@@ -58,8 +59,10 @@ ALTER TABLE
 
 mario_database=> ALTER TABLE characters ADD COLUMN homeland VARCHAR(60);
 ALTER TABLE
+
 mario_database=> ALTER TABLE characters ADD COLUMN favourite_color VARCHAR(30);
 mario_database=> ALTER TABLE
+
 ALTER TABLE characters ADD COLUMN favorite_color VARCHAR(30);
 ALTER TABLE
 
@@ -100,8 +103,8 @@ ALTER TABLE chara\d characters
 
 mario_database=> INSERT INTO characters(name, homeland, favorite_color) VALUES('Mario', 'Mushroom Kingdom', 'Red');
 INSERT 0 1
-mario_database=> SELECT * FROM characters;
-                              
+
+mario_database=> SELECT * FROM characters;                    
 +--------------+-------+------------------+----------------+
 | character_id | name  |     homeland     | favorite_color |
 +--------------+-------+------------------+----------------+
@@ -111,8 +114,8 @@ mario_database=> SELECT * FROM characters;
 
 mario_database=> INSERT INTO characters(name, homeland, favorite_color) VALUES('Luigi', 'Mushroom Kingdom', 'Green');
 INSERT 0 1
-mario_database=> SELECT * FROM characters;
-                              
+
+mario_database=> SELECT * FROM characters;                             
 +--------------+-------+------------------+----------------+
 | character_id | name  |     homeland     | favorite_color |
 +--------------+-------+------------------+----------------+
@@ -123,10 +126,13 @@ mario_database=> SELECT * FROM characters;
 
 mario_database=> INSERT INTO characters(name, homeland, favorite_color) VALUES('Peach', 'Mushroom Kingdom', 'Pink');
 INSERT 0 1
+
 mario_database=> INSERT INTO characters(name, homeland, favorite_color) VALUES('Toadstool', 'Mushroom Kingdom', 'Red'), ('Bowser', 'Mushroom Kingdom', 'Green');
 INSERT 0 2
+
 mario_database=> INSERT INTO characters(name, homeland, favorite_color) VALUES('Daisy', 'Sarasaland', 'Yellow'), ('Yoshi', 'Dinosaur Land', 'Green');
 INSERT 0 2
+
 mario_database=> SELECT * FROM characters;
 mario_database=>                                 
 +--------------+-----------+------------------+----------------+
@@ -145,8 +151,8 @@ mario_database=>
 
 mario_database=> DELETE FROM characters WHERE name='Peach';
 DELETE 2
-mario_database=> SELECT * FROM characters;
-                                
+
+mario_database=> SELECT * FROM characters;                   
 +--------------+-----------+------------------+----------------+
 | character_id |   name    |     homeland     | favorite_color |
 +--------------+-----------+------------------+----------------+
@@ -161,6 +167,7 @@ mario_database=> SELECT * FROM characters;
 
 mario_database=> INSERT INTO characters(name, homeland, favorite_color) VALUES('Peach', 'Mushroom Kingdom', 'Pink');
 INSERT 0 1
+
 mario_database=> SELECT * FROM characters;
 mario_database=>                                 
 +--------------+-----------+------------------+----------------+
@@ -178,6 +185,7 @@ mario_database=>
 
 mario_database=> UPDATE characters SET favorite_color = 'Orange' WHERE name='Daisy';
 UPDATE 1
+
 mario_database=> SELECT * FROM characters;
 mario_database=>                                 
 +--------------+-----------+------------------+----------------+
@@ -193,9 +201,10 @@ mario_database=>
 +--------------+-----------+------------------+----------------+
 (7 rows)
 
-SELECT * FROM cha
+
 mario_database=> UPDATE characters SET name='Toad' WHERE favorite_color='Red';
 UPDATE 2
+
 mario_database=> SELECT * FROM characters;
                                
 +--------------+--------+------------------+----------------+
@@ -213,6 +222,7 @@ mario_database=> SELECT * FROM characters;
 
 mario_database=> UPDATE characters SET name='Mario' WHERE character_id='1';
 mario_database=> UPDATE 1
+
 UPDATE charactersSELECT * FROM characters;
                                
 +--------------+--------+------------------+----------------+
@@ -228,13 +238,15 @@ UPDATE charactersSELECT * FROM characters;
 +--------------+--------+------------------+----------------+
 (7 rows)
 
-mario_database=> UPDATE character SET favorite_color='Blue" WHERE name='Toad';
 mario_database=> UPDATE characters SET favorite_color='Blue' WHERE name='Toad';
 UPDATE 1
+
 mario_database=> UPDATE characters SET favorite_color='Yellow' WHERE name='Bowser';
 UPDATE 1
+
 mario_database=> UPDATE characters SET homeland='Koopa Kingdom' WHERE name='Bowser';
 UPDATE 1
+
 mario_database=> SELECT * FROM characters;
                                
 +--------------+--------+------------------+----------------+
@@ -267,6 +279,7 @@ mario_database=> SELECT * FROM characters ORDER BY character_id;
 
 mario_database=> ALTER TABLE characters ADD PRIMARY KEY(name);
 ALTER TABLE
+
 mario_database=> \d characters
                                              Table "public.characters"
 +----------------+-----------------------+-----------+----------+--------------------------------------------------+
@@ -282,6 +295,7 @@ Indexes:
 
 mario_database=> ALTER TABLE characters DROP CONsTRAINT characters_pkey;
 ALTER TABLE
+
 mario_database=> SELECT * FROM characters;
                                
 +--------------+--------+------------------+----------------+
@@ -310,6 +324,7 @@ mario_database=> \d characters;
 
 mario_database=> ALTER TABLE characters ADD PRIMARY KEY(character_id);
 ALTER TABLE
+
 mario_database=> \d characters;
                                              Table "public.characters"
 +----------------+-----------------------+-----------+----------+--------------------------------------------------+
@@ -325,3 +340,135 @@ Indexes:
 
 mario_database=> CREATE TABLE more_info();
 CREATE TABLE
+
+mario_database=> ALTER TABLE more_info ADD COLUMN more_info_id SERIAL;
+ALTER TABLE
+
+mario_database=> ALTER TABLE more_info ADD PRIMARY KEY (more_info_id);
+ALTER TABLE
+
+mario_database=> \list
+mario_database=>                                    List of databases
++----------------+--------------+----------+---------+---------+-----------------------+
+|      Name      |    Owner     | Encoding | Collate |  Ctype  |   Access privileges   |
++----------------+--------------+----------+---------+---------+-----------------------+
+| mario_database | freecodecamp | UTF8     | C.UTF-8 | C.UTF-8 |                       |
+| postgres       | postgres     | UTF8     | C.UTF-8 | C.UTF-8 |                       |
+| template0      | postgres     | UTF8     | C.UTF-8 | C.UTF-8 | =c/postgres          +|
+|                |              |          |         |         | postgres=CTc/postgres |
+| template1      | postgres     | UTF8     | C.UTF-8 | C.UTF-8 | =c/postgres          +|
+|                |              |          |         |         | postgres=CTc/postgres |
++----------------+--------------+----------+---------+---------+-----------------------+
+(4 rows)
+
+\d mario_database;
+Did not find any relation named "mario_database".
+mario_database=> \d more_info
+                                     Table "public.more_info"
++--------------+---------+-----------+----------+-------------------------------------------------+
+|    Column    |  Type   | Collation | Nullable |                     Default                     |
++--------------+---------+-----------+----------+-------------------------------------------------+
+| more_info_id | integer |           | not null | nextval('more_info_more_info_id_seq'::regclass) |
++--------------+---------+-----------+----------+-------------------------------------------------+
+Indexes:
+    "more_info_pkey" PRIMARY KEY, btree (more_info_id)
+
+mario_database=> \d more_info_id
+Did not find any relation named "more_info_id".
+mario_database=> \d
+                        List of relations
++--------+-----------------------------+----------+--------------+
+| Schema |            Name             |   Type   |    Owner     |
++--------+-----------------------------+----------+--------------+
+| public | characters                  | table    | freecodecamp |
+| public | characters_character_id_seq | sequence | freecodecamp |
+| public | more_info                   | table    | freecodecamp |
+| public | more_info_more_info_id_seq  | sequence | freecodecamp |
++--------+-----------------------------+----------+--------------+
+(4 rows)
+
+mario_database=> ALTER TABLE more_info ADD COLUMN birthday DATE;
+ALTER TABLE
+mario_database=> ALTER TABLE more_info ADD COLUMN height INT;
+ALTER TABLE
+mario_database=> ALTER TABLE more_info ADD COLUMN weight NUMERIC(4, 1);
+ALTER TABLE
+mario_database=> \d
+mario_database=>                         List of relations
++--------+-----------------------------+----------+--------------+
+| Schema |            Name             |   Type   |    Owner     |
++--------+-----------------------------+----------+--------------+
+| public | characters                  | table    | freecodecamp |
+| public | characters_character_id_seq | sequence | freecodecamp |
+| public | more_info                   | table    | freecodecamp |
+| public | more_info_more_info_id_seq  | sequence | freecodecamp |
++--------+-----------------------------+----------+--------------+
+(4 rows)
+
+\d more_info
+                                        Table "public.more_info"
++--------------+--------------+-----------+----------+-------------------------------------------------+
+|    Column    |     Type     | Collation | Nullable |                     Default                     |
++--------------+--------------+-----------+----------+-------------------------------------------------+
+| more_info_id | integer      |           | not null | nextval('more_info_more_info_id_seq'::regclass) |
+| birthday     | date         |           |          |                                                 |
+| height       | integer      |           |          |                                                 |
+| weight       | numeric(4,1) |           |          |                                                 |
++--------------+--------------+-----------+----------+-------------------------------------------------+
+Indexes:
+    "more_info_pkey" PRIMARY KEY, btree (more_info_id)
+
+mario_database=> ALTER TABLE more_info ADD COLUMN character_id INT REFERENCES characters(character_id);
+ALTER TABLE
+
+
+mario_database=> SELECT * FROM characters ORDER BY character_id;
+mario_database=>                                
++--------------+--------+------------------+----------------+
+| character_id |  name  |     homeland     | favorite_color |
++--------------+--------+------------------+----------------+
+|            1 | Mario  | Mushroom Kingdom | Red            |
+|            2 | Luigi  | Mushroom Kingdom | Green          |
+|            3 | Peach  | Mushroom Kingdom | Pink           |
+|            4 | Toad   | Mushroom Kingdom | Blue           |
+|            5 | Bowser | Koopa Kingdom    | Yellow         |
+|            6 | Daisy  | Sarasaland       | Orange         |
+|            7 | Yoshi  | Dinosaur Land    | Green          |
++--------------+--------+------------------+----------------+
+(7 rows)
+
+mario_database=> INSERT INTO sounds(character_id, filename) VALUES(1, 'its-a-me.wav');
+INSERT 0 1
+
+mario_database=> INSERT INTO sounds(character_id, filename) VALUES(1, 'yippee.wav');
+INSERT 0 1
+
+mario_database=> INSERT INTO sounds(character_id, filename) VALUES(2, 'ha-ha.wav');
+mario_database=> INSERT 0 1
+
+INSERT INTO sounds(character_id, filename) VALUES(2, 'oh-yeah.wav');
+INSERT 0 1
+
+mario_database=> INSERT INTO sounds(character_id, filename) VALUES(3, 'yay.wav'), (3,  'woo-hoo.wav');
+mario_database=> INSERT 0 2
+
+INSERT INTO sounds(character_id, filename) VALUES(3, 'mm-hmm.wav'), (1,  'yahoo.wav');
+mario_database=> INSERT 0 2
+
+SELECT * FROM sounds;
+mario_database=>                      
++----------+--------------+--------------+
+| sound_id |   filename   | character_id |
++----------+--------------+--------------+
+|        1 | its-a-me.wav |            1 |
+|        2 | yippee.wav   |            1 |
+|        3 | ha-ha.wav    |            2 |
+|        4 | oh-yeah.wav  |            2 |
+|        5 | yay.wav      |            3 |
+|        6 | woo-hoo.wav  |            3 |
+|        7 | mm-hmm.wav   |            3 |
+|        8 | yahoo.wav    |            1 |
++----------+--------------+--------------+
+(8 rows)
+
+
