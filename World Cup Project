@@ -1,0 +1,243 @@
+codeally@def3baa3ae97:~/project$ psql --username=freecodecamp --dbname=postgres
+psql (12.9 (Ubuntu 12.9-2.pgdg20.04+1))
+Type "help" for help.
+
+postgres=> CREATE TABLE worldcup;
+ERROR:  syntax error at or near ";"
+LINE 1: CREATE TABLE worldcup;
+                             ^
+postgres=> CREATE TABLE worldcup();
+CREATE TABLE
+postgres=> \c worldcup
+connection to server on socket "/var/run/postgresql/.s.PGSQL.5432" failed: FATAL:  database "worldcup" does not exist
+Previous connection kept
+postgres=> \list
+                               List of databases
+     Name     |  Owner   | Encoding | Collate |  Ctype  |   Access privileges   
+--------------+----------+----------+---------+---------+-----------------------
+ postgres     | postgres | UTF8     | C.UTF-8 | C.UTF-8 | 
+ template0    | postgres | UTF8     | C.UTF-8 | C.UTF-8 | =c/postgres          +
+              |          |          |         |         | postgres=CTc/postgres
+ template1    | postgres | UTF8     | C.UTF-8 | C.UTF-8 | =c/postgres          +
+              |          |          |         |         | postgres=CTc/postgres
+ worldcuptest | postgres | UTF8     | C.UTF-8 | C.UTF-8 | 
+(4 rows)
+
+postgres=> CREATE DATABASE worldcuo();
+ERROR:  syntax error at or near "("
+LINE 1: CREATE DATABASE worldcuo();
+                                ^
+postgres=> CREATE DATABASE worldcup;
+CREATE DATABASE
+postgres=> \c worldcup
+You are now connected to database "worldcup" as user "freecodecamp".
+worldcup=> CREATE TABLE(teams, games);
+ERROR:  syntax error at or near "("
+LINE 1: CREATE TABLE(teams, games);
+                    ^
+worldcup=> CREATE TABLE teams;
+ERROR:  syntax error at or near ";"
+LINE 1: CREATE TABLE teams;
+                          ^
+worldcup=> CREATE TABLE teams();
+CREATE TABLE
+worldcup=> CREATE TABLE games();
+CREATE TABLE
+worldcup=> ALTER TABLE teams ADD COLUMN team_id SERIAL PRIMARY KEY;
+ALTER TABLE
+worldcup=> ALTER TABLE team ADD COLUMN name UNIQUE;
+ERROR:  syntax error at or near "UNIQUE"
+LINE 1: ALTER TABLE team ADD COLUMN name UNIQUE;
+                                         ^
+worldcup=> ALTER TABLE team ADD COLUMN name SERIAL UNIQUE;
+ERROR:  relation "team" does not exist
+worldcup=> ALTER TABLE teams ADD COLUMN name UNIQUE;
+ERROR:  syntax error at or near "UNIQUE"
+LINE 1: ALTER TABLE teams ADD COLUMN name UNIQUE;
+                                          ^
+worldcup=> ALTER TABLE teams ADD COLUMN name SERIAL UNIQUE;
+ALTER TABLE
+worldcup=> ALTER TABLE games ADD COLUMN game_id SERIAL PRIMARY KEY;
+ALTER TABLE
+worldcup=> ALTER TABLE games ADD COLUMN year INT;
+ALTER TABLE
+worldcup=> ALTER TABLE games ADD COLUMN round VARCHAR;
+ALTER TABLE
+worldcup=> ALTER TABLE games ADD COLUMN winner_id REFERENCES teams(team_id);
+ERROR:  syntax error at or near "REFERENCES"
+LINE 1: ALTER TABLE games ADD COLUMN winner_id REFERENCES teams(team...
+                                               ^
+worldcup=> ALTER TABLE games ADD COLUMN winner_id Foreign Key REFERENCES teams(team_id);
+ERROR:  syntax error at or near "Foreign"
+LINE 1: ALTER TABLE games ADD COLUMN winner_id Foreign Key REFERENCE...
+                                               ^
+worldcup=> ALTER TABLE games ADD COLUMN winner_id FOREIGN KEY REFERENCES teams(team_id);
+ERROR:  syntax error at or near "FOREIGN"
+LINE 1: ALTER TABLE games ADD COLUMN winner_id FOREIGN KEY REFERENCE...
+                                               ^
+worldcup=> ALTER TABLE games ADD FOREIGN KEY(winner_id) REFERENCES teams(team_id);
+ERROR:  column "winner_id" referenced in foreign key constraint does not exist
+worldcup=> \d
+                  List of relations
+ Schema |       Name        |   Type   |    Owner     
+--------+-------------------+----------+--------------
+ public | games             | table    | freecodecamp
+ public | games_game_id_seq | sequence | freecodecamp
+ public | teams             | table    | freecodecamp
+ public | teams_name_seq    | sequence | freecodecamp
+ public | teams_team_id_seq | sequence | freecodecamp
+(5 rows)
+
+worldcup=> \d games
+                                    Table "public.games"
+ Column  |       Type        | Collation | Nullable |                Default                 
+---------+-------------------+-----------+----------+----------------------------------------
+ game_id | integer           |           | not null | nextval('games_game_id_seq'::regclass)
+ year    | integer           |           |          | 
+ round   | character varying |           |          | 
+Indexes:
+    "games_pkey" PRIMARY KEY, btree (game_id)
+
+worldcup=> ALTER TABLE games ADD COLUMN(winner_goals, opponent_goals) INT;
+ERROR:  syntax error at or near "("
+LINE 1: ALTER TABLE games ADD COLUMN(winner_goals, opponent_goals) I...
+                                    ^
+worldcup=> ALTER TABLE games ADD COLUMN winner_goals INT;
+ALTER TABLE
+worldcup=> ALTER TABLE games ADD COLUMN opponent_goals INT;
+ALTER TABLE
+worldcup=> \d
+                  List of relations
+ Schema |       Name        |   Type   |    Owner     
+--------+-------------------+----------+--------------
+ public | games             | table    | freecodecamp
+ public | games_game_id_seq | sequence | freecodecamp
+ public | teams             | table    | freecodecamp
+ public | teams_name_seq    | sequence | freecodecamp
+ public | teams_team_id_seq | sequence | freecodecamp
+(5 rows)
+
+worldcup=> \d games
+                                        Table "public.games"
+     Column     |       Type        | Collation | Nullable |                Default                 
+----------------+-------------------+-----------+----------+----------------------------------------
+ game_id        | integer           |           | not null | nextval('games_game_id_seq'::regclass)
+ year           | integer           |           |          | 
+ round          | character varying |           |          | 
+ winner_goals   | integer           |           |          | 
+ opponent_goals | integer           |           |          | 
+Indexes:
+    "games_pkey" PRIMARY KEY, btree (game_id)
+
+worldcup=> ALTER TABLE games ALTER COLUMN year NOT NULL;
+ERROR:  syntax error at or near "NOT"
+LINE 1: ALTER TABLE games ALTER COLUMN year NOT NULL;
+                                            ^
+worldcup=> ALTER TABLE games ALTER COLUMN year TO NOT NULL;
+ERROR:  syntax error at or near "TO"
+LINE 1: ALTER TABLE games ALTER COLUMN year TO NOT NULL;
+                                            ^
+worldcup=> ALTER TABLE games ALTER COLUMN year (NOT NULL);
+ERROR:  syntax error at or near "("
+LINE 1: ALTER TABLE games ALTER COLUMN year (NOT NULL);
+                                            ^
+worldcup=> ALTER TABLE games ALTER COLUMN NOT NULL;
+ERROR:  syntax error at or near "NOT"
+LINE 1: ALTER TABLE games ALTER COLUMN NOT NULL;
+                                       ^
+worldcup=> ALTER TABLE games ADD FOREIGN KEY(winner_id) REFERENCES teams(team_id);
+ERROR:  column "winner_id" referenced in foreign key constraint does not exist
+worldcup=> ALTER TABLE games ADD COLUMN winner_id NOT NULL;
+ERROR:  syntax error at or near "NOT"
+LINE 1: ALTER TABLE games ADD COLUMN winner_id NOT NULL;
+                                               ^
+worldcup=> ALTER TABLE games ADD COLUMN winner_id;
+ERROR:  syntax error at or near ";"
+LINE 1: ALTER TABLE games ADD COLUMN winner_id;
+                                              ^
+worldcup=> ALTER TABLE games ADD COLUMN winner_id INT NOT NULL;
+ALTER TABLE
+worldcup=> ALTER TABLE games ADD FOREIGN KEY(winner_id) REFERENCES teams(team_id);
+ALTER TABLE
+worldcup=> ALTER TABLE games ADD COLUMN opponent_id INT NOT NULL;
+ALTER TABLE
+worldcup=> ALTER TABLE games ADD FOREIGN KEY(opponent_id) REFERENCES teams(team_id);
+ALTER TABLE
+worldcup=> \d games
+                                        Table "public.games"
+     Column     |       Type        | Collation | Nullable |                Default                 
+----------------+-------------------+-----------+----------+----------------------------------------
+ game_id        | integer           |           | not null | nextval('games_game_id_seq'::regclass)
+ year           | integer           |           |          | 
+ round          | character varying |           |          | 
+ winner_goals   | integer           |           |          | 
+ opponent_goals | integer           |           |          | 
+ winner_id      | integer           |           | not null | 
+ opponent_id    | integer           |           | not null | 
+Indexes:
+    "games_pkey" PRIMARY KEY, btree (game_id)
+Foreign-key constraints:
+    "games_opponent_id_fkey" FOREIGN KEY (opponent_id) REFERENCES teams(team_id)
+    "games_winner_id_fkey" FOREIGN KEY (winner_id) REFERENCES teams(team_id)
+
+worldcup=> ALTER TABLE games ALTER COLUMN year INT NOT NULL;
+ERROR:  syntax error at or near "INT"
+LINE 1: ALTER TABLE games ALTER COLUMN year INT NOT NULL;
+                                            ^
+worldcup=> ALTER TABLE games ALTER COLUMN year NOT NULL;
+ERROR:  syntax error at or near "NOT"
+LINE 1: ALTER TABLE games ALTER COLUMN year NOT NULL;
+                                            ^
+worldcup=> ALTER TABLE games ALTER COLUMN year not null;
+ERROR:  syntax error at or near "not"
+LINE 1: ALTER TABLE games ALTER COLUMN year not null;
+                                            ^
+worldcup=> ALTER TABLE games DROP COLUMN year;
+ALTER TABLE
+worldcup=> ALTER TABLE games ADD COLUMN year INT NOT NULL;
+ALTER TABLE
+worldcup=> ALTER TABLE games DROP COLUMN round;
+ALTER TABLE
+worldcup=> ALTER TABLE games ADD COLUMN round VARCHAR NOT NULL;
+ALTER TABLE
+worldcup=> ALTER TABLE games DROP COLUMN winner_id;
+ALTER TABLE
+worldcup=> ALTER TABLE games ADD COLUMN winner_id INT NOT NULL;
+ALTER TABLE
+worldcup=> ALTER TABLE games DROP COLUMN winner_goals;
+ALTER TABLE
+worldcup=> ALTER TABLE games DROP COLUMN opponent_goals;
+ALTER TABLE
+worldcup=> ALTER TABLE games ADD COLUMN winner_goals INT NOT NULL;
+ALTER TABLE
+worldcup=> ALTER TABLE games ADD COLUMN opponent_goals INT NOT NULL;
+ALTER TABLE
+worldcup=> \d games
+                                        Table "public.games"
+     Column     |       Type        | Collation | Nullable |                Default                 
+----------------+-------------------+-----------+----------+----------------------------------------
+ game_id        | integer           |           | not null | nextval('games_game_id_seq'::regclass)
+ opponent_id    | integer           |           | not null | 
+ year           | integer           |           | not null | 
+ round          | character varying |           | not null | 
+ winner_id      | integer           |           | not null | 
+ winner_goals   | integer           |           | not null | 
+ opponent_goals | integer           |           | not null | 
+Indexes:
+    "games_pkey" PRIMARY KEY, btree (game_id)
+Foreign-key constraints:
+    "games_opponent_id_fkey" FOREIGN KEY (opponent_id) REFERENCES teams(team_id)
+
+worldcup=> \d teams
+                               Table "public.teams"
+ Column  |  Type   | Collation | Nullable |                Default                 
+---------+---------+-----------+----------+----------------------------------------
+ team_id | integer |           | not null | nextval('teams_team_id_seq'::regclass)
+ name    | integer |           | not null | nextval('teams_name_seq'::regclass)
+Indexes:
+    "teams_pkey" PRIMARY KEY, btree (team_id)
+    "teams_name_key" UNIQUE CONSTRAINT, btree (name)
+Referenced by:
+    TABLE "games" CONSTRAINT "games_opponent_id_fkey" FOREIGN KEY (opponent_id) REFERENCES teams(team_id)
+
+worldcup=> 
