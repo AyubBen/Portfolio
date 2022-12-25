@@ -1,8 +1,8 @@
-                                                                      Mario Database
+                                                                    #  Mario Database
 
-- Create a database, tables, columns, and populate it with data.
-- Define Primary & Foreign keys.
-- Join tables with one-to-one and many-to-one relationships.
+##- Create a database, tables, columns, and populate it with data.
+##- Define Primary & Foreign keys.
+##- Join tables with one-to-one and many-to-one relationships.
 
 
 
