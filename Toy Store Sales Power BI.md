@@ -1,7 +1,7 @@
 
-![Report 1](https://github.com/AyubBen/Portfolio/blob/main/images/Final20Screenshot20Page201.JPG)
+![Report 1](https://github.com/AyubBen/Portfolio/blob/main/images/Final%20Screenshot%20Page%201.JPG)
 
-![Report 2](https://github.com/AyubBen/Portfolio/blob/main/images/Final20Screenshot20Page202.JPG)
+![Report 2](https://github.com/AyubBen/Portfolio/blob/main/images/Final%20Screenshot%20Page%202.JPG)
 
 
 - Dataset link:
