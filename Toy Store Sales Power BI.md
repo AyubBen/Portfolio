@@ -1,15 +1,37 @@
 
+
+# Introduction
+
+This project will use Excel and R.
+
+
+
+## The dataset used can be found in Kaggle:
+> https://lnkd.in/evbN6RNS
+
+
+## Case Scenario
+The
+
+
+
+## The process to a successful analysis and visualisation goes through various steps:
+- Cleaning the data.
+- Understanding the data.
+- Analyzing, visualizing the data.
+- Build interactive dashboard.
+- Provide Recommendations based on results.
+
+
 ![Report 1](https://github.com/AyubBen/Portfolio/blob/main/images/Final%20Screenshot%20Page%201.JPG)
 
 ![Report 2](https://github.com/AyubBen/Portfolio/blob/main/images/Final%20Screenshot%20Page%202.JPG)
 
 
-- Dataset link:
-https://lnkd.in/evbN6RNS
 
 
 
-Questions to answer:
+## Questions to answer:
 ### 1- Which product categories drive the biggest profits? Is this the same across store locations?
 
 The product category that drives the biggest profits is Toys with 1.08 million which consists of teddy bears, lego bricks, hot wheels, and more, followed by:
